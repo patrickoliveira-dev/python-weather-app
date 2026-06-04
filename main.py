@@ -13,15 +13,6 @@ from historico import (
 
 from models.consulta_clima import ConsultaClima
 
-""" def mostrar_clima(dados):
-
-    temperatura = dados["current"]["temperature_2m"]
-    vento = dados["current"]["wind_speed_10m"]
-
-    print("\n=== CLIMA ATUAL ===")
-    print(f"🌡️ Temperatura: {temperatura}°C")
-    print(f"💨 Vento: {vento} km/h") """
-
 def mostrar_previsao(dados):
     datas = dados["daily"]["time"]
 
@@ -66,13 +57,13 @@ while True:
                 longitude
             )
 
-            temperatura = dados_clima["current"]["temperature_2m"]
-            vento = dados_clima["current"]["wind_speed_10m"]
+            if not dados_clima:
 
-            consulta = ConsultaClima(
+                continue
+
+            consulta = ConsultaClima.from_api(
                 cidade,
-                temperatura,
-                vento
+                dados_clima
             )
 
             consulta.exibir()
@@ -82,7 +73,9 @@ while True:
                 longitude
             )
 
-            mostrar_previsao(dados_previsao)
+            if dados_previsao:
+
+                mostrar_previsao(dados_previsao)
 
             salvar_consulta(consulta)
 

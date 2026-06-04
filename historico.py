@@ -5,23 +5,8 @@ def salvar_consulta(consulta):
 
     nova_consulta = consulta.to_dict()
 
-    try:
-
-        with open(
-            "historico.json",
-            "r",
-            encoding="utf-8"
-        ) as arquivo:
-            
-            historico = json.load(arquivo)
+    historico = carregar_historico()
     
-    except (
-        FileNotFoundError,
-        json.JSONDecodeError
-    ):
-
-        historico = []
-
     historico.append(nova_consulta)
 
     with open(
@@ -39,25 +24,18 @@ def salvar_consulta(consulta):
 
 def mostrar_historico():
 
-    try:
-
-        with open("historico.json", "r", encoding="utf-8") as arquivo:
-            historico = json.load(arquivo)
+    historico = carregar_historico()
     
-    except FileNotFoundError:
+    if historico is None:
+        return
+
+    if not historico:
 
         print("\nNenhum histórico encontrado.")
         return
     
     print("\n=== HISTÓRICO ===")
 
-    """ for consulta in historico:
-
-        print(f"\n📍 Cidade: {consulta['cidade']}")
-        print(f"🕒 Data/Hora: {consulta['data_hora']}")
-        print(f"🌡️ Temperatura: {consulta['temperatura']}°C")
-        print(f"💨 Vento: {consulta['vento']} km/h") """
-    
     for dados in historico:
 
         consulta = ConsultaClima.from_dict(
@@ -68,7 +46,11 @@ def mostrar_historico():
 
 def limpar_historico():
 
-    with open("historico.json", "w", encoding="utf-8") as arquivo:
+    with open(
+        "historico.json",
+        "w",
+        encoding="utf-8"
+    ) as arquivo:
 
         json.dump(
             [],
@@ -81,13 +63,7 @@ def limpar_historico():
 
 def mostrar_estatisticas():
 
-    with open(
-        "historico.json",
-        "r",
-        encoding="utf-8"
-    ) as arquivo:
-        
-        historico = json.load(arquivo)
+    historico = carregar_historico()
 
     if not historico:
 
@@ -147,3 +123,27 @@ def mostrar_estatisticas():
         f"🧊 Menor temperatura: "
         f"{minima:.1f}°C"
     )
+
+def carregar_historico():
+
+    try:
+
+        with open(
+            "historico.json",
+            "r",
+            encoding="utf-8"
+        ) as arquivo:
+                
+            return json.load(arquivo)
+        
+    except FileNotFoundError:
+
+        return []
+        
+    except json.JSONDecodeError:
+
+        print(
+            "\n❌ Histórico corrompido."
+        )
+
+        return None

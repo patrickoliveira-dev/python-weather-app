@@ -8,9 +8,24 @@ def buscar_coordenadas(cidade):
         f"&count=1"
     )
 
-    resposta = requests.get(url)
+    try:
 
-    dados = resposta.json()
+        resposta = requests.get(
+            url,
+            timeout=10
+        )
+
+        resposta.raise_for_status()
+
+        dados = resposta.json()
+    
+    except requests.exceptions.RequestException:
+
+        print(
+            "\n❌ Erro ao consultar a API de geolocalização."
+        )
+
+        return None
 
     if "results" not in dados:
         print("Cidade não encontrada.")
@@ -32,9 +47,24 @@ def buscar_clima(latitude, longitude):
         f"&current=temperature_2m,wind_speed_10m"
     )
 
-    resposta = requests.get(url)
+    try:
 
-    return resposta.json()
+        resposta = requests.get(
+            url,
+            timeout=10
+        )
+
+        resposta.raise_for_status()
+
+        return resposta.json()
+    
+    except requests.exceptions.RequestException:
+
+        print(
+            "\n❌ Erro ao consultar a API de clima."
+        )
+
+        return None
 
 def buscar_previsao (latitude, longitude):
 
@@ -45,6 +75,21 @@ def buscar_previsao (latitude, longitude):
         f"&daily=temperature_2m_max,temperature_2m_min"
     )
 
-    resposta = requests.get(url)
+    try:
 
-    return resposta.json()
+        resposta = requests.get(
+            url,
+            timeout=10
+        )
+
+        resposta.raise_for_status()
+
+        return resposta.json()
+    
+    except requests.exceptions.RequestException:
+
+        print(
+            "\n❌ Erro ao consultar a API de previsão."
+        )
+
+        return None

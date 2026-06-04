@@ -45,3 +45,15 @@ class ConsultaClima:
         consulta.data_hora = dados["data_hora"]
 
         return consulta
+    
+    @classmethod
+    def from_api(cls, cidade, dados):
+
+        temperatura = dados["current"]["temperature_2m"]
+        vento = dados["current"]["wind_speed_10m"]
+
+        return cls(
+            cidade,
+            temperatura,
+            vento
+        )
