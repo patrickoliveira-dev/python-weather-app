@@ -78,3 +78,72 @@ def limpar_historico():
         )
     
     print("\n🗑️ Histórico apagado com sucesso.")
+
+def mostrar_estatisticas():
+
+    with open(
+        "historico.json",
+        "r",
+        encoding="utf-8"
+    ) as arquivo:
+        
+        historico = json.load(arquivo)
+
+    if not historico:
+
+        print("\nNenhuma consulta encontrada")
+        return
+    
+    total = len(historico)
+
+    temperaturas = [
+        consulta["temperatura"]
+        for consulta in historico
+    ]
+
+    media = sum(temperaturas) / len(temperaturas)
+
+    maxima = max(temperaturas)
+
+    minima = min(temperaturas)
+
+    contagem_cidades = {}
+
+    for consulta in historico:
+
+        cidade = consulta["cidade"]
+
+        if cidade not in contagem_cidades:
+
+            contagem_cidades[cidade] = 0
+        
+        contagem_cidades[cidade] += 1
+    
+    cidade_mais_consultada = max(
+        contagem_cidades,
+        key=contagem_cidades.get
+    )
+
+    print("\n=== ESTATíSTICAS ===")
+
+    print(f"📊 Total de consultas: {total}")
+
+    print(
+        f"🏙️ Cidade mais consultada: "
+        f"{cidade_mais_consultada}"
+    )
+
+    print(
+        f"🌡️ Temperatura média: "
+        f"{media:.1f}°C"
+    )
+
+    print(
+    f"🔥 Maior temperatura: "
+    f"{maxima:.1f}°C"
+    )
+
+    print(
+        f"🧊 Menor temperatura: "
+        f"{minima:.1f}°C"
+    )

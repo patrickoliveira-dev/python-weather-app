@@ -7,7 +7,8 @@ from api import (
 from historico import (
     salvar_consulta,
     mostrar_historico,
-    limpar_historico
+    limpar_historico,
+    mostrar_estatisticas
 )
 
 from models.consulta_clima import ConsultaClima
@@ -45,7 +46,8 @@ while True:
     print("1 - Consultar cidade")
     print("2 - Ver histórico")
     print("3 - Limpar histórico")
-    print("4 - Sair")
+    print("4 - Estatísticas")
+    print("5 - Sair")
 
     opcao = input("\nEscolha uma opção: ")
 
@@ -99,6 +101,10 @@ while True:
             limpar_historico()
     
     elif opcao == "4":
+
+        mostrar_estatisticas()
+
+    elif opcao == "5":
 
         print("\nEncerrando programa...")
         break
