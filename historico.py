@@ -70,6 +70,10 @@ def mostrar_estatisticas():
         print("\nNenhuma consulta encontrada")
         return
     
+    primeira = historico[0]
+
+    ultima = historico[-1]
+    
     total = len(historico)
 
     temperaturas = [
@@ -100,7 +104,13 @@ def mostrar_estatisticas():
         key=contagem_cidades.get
     )
 
-    print("\n=== ESTATíSTICAS ===")
+    ranking_cidades = sorted(
+        contagem_cidades.items(),
+        key=lambda item: item[1],
+        reverse=True
+    )
+
+    print("\n=== ESTATÍSTICAS ===")
 
     print(f"📊 Total de consultas: {total}")
 
@@ -123,6 +133,38 @@ def mostrar_estatisticas():
         f"🧊 Menor temperatura: "
         f"{minima:.1f}°C"
     )
+
+    print("\n🕒 PRIMEIRA CONSULTA")
+
+    print(
+        f"{primeira['cidade']} - "
+        f"{primeira['data_hora']}"
+    )
+
+    print("\n🕒 ÚLTIMA CONSULTA")
+
+    print(
+        f"{ultima['cidade']} - "
+        f"{ultima['data_hora']}"
+    )
+
+    print("\n🏆 TOP 3 CIDADES MAIS CONSULTADAS")
+
+    for posicao, (cidade, quantidade) in enumerate(
+        ranking_cidades[:3],
+        start=1
+    ):
+        
+        texto_consulta = (
+        "consulta"
+        if quantidade == 1
+        else "consultas"
+        )
+
+        print(
+            f"{posicao}. {cidade} "
+            f"({quantidade} {texto_consulta})"
+        )
 
 def carregar_historico():
 

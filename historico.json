@@ -1,1 +1,80 @@
-[]
+[
+    {
+        "cidade": "Rio de Janeiro",
+        "temperatura": 20.7,
+        "vento": 10.3,
+        "data_hora": "04/06/2026 20:54:21"
+    },
+    {
+        "cidade": "São Paulo",
+        "temperatura": 15.3,
+        "vento": 8.9,
+        "data_hora": "04/06/2026 20:54:28"
+    },
+    {
+        "cidade": "London",
+        "temperatura": 14.8,
+        "vento": 15.5,
+        "data_hora": "04/06/2026 20:54:33"
+    },
+    {
+        "cidade": "Paris",
+        "temperatura": 13.7,
+        "vento": 9.4,
+        "data_hora": "04/06/2026 20:54:47"
+    },
+    {
+        "cidade": "Rome",
+        "temperatura": 17.7,
+        "vento": 2.5,
+        "data_hora": "04/06/2026 20:54:54"
+    },
+    {
+        "cidade": "Berlin",
+        "temperatura": 16.0,
+        "vento": 11.7,
+        "data_hora": "04/06/2026 20:55:03"
+    },
+    {
+        "cidade": "Tokyo",
+        "temperatura": 18.8,
+        "vento": 7.7,
+        "data_hora": "04/06/2026 20:55:14"
+    },
+    {
+        "cidade": "Beijing",
+        "temperatura": 20.0,
+        "vento": 1.6,
+        "data_hora": "04/06/2026 20:55:58"
+    },
+    {
+        "cidade": "Madrid",
+        "temperatura": 19.7,
+        "vento": 8.3,
+        "data_hora": "04/06/2026 20:56:46"
+    },
+    {
+        "cidade": "New York",
+        "temperatura": 27.0,
+        "vento": 8.7,
+        "data_hora": "04/06/2026 20:57:19"
+    },
+    {
+        "cidade": "London",
+        "temperatura": 14.7,
+        "vento": 15.5,
+        "data_hora": "04/06/2026 21:02:46"
+    },
+    {
+        "cidade": "São Paulo",
+        "temperatura": 15.2,
+        "vento": 8.8,
+        "data_hora": "04/06/2026 21:02:58"
+    },
+    {
+        "cidade": "São Paulo",
+        "temperatura": 15.2,
+        "vento": 8.8,
+        "data_hora": "04/06/2026 21:03:05"
+    }
+]
