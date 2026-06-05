@@ -125,8 +125,8 @@ def mostrar_estatisticas():
     )
 
     print(
-    f"🔥 Maior temperatura: "
-    f"{maxima:.1f}°C"
+        f"🔥 Maior temperatura: "
+        f"{maxima:.1f}°C"
     )
 
     print(
