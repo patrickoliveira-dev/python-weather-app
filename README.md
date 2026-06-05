@@ -1,54 +1,30 @@
 # Weather App
 
-Aplicação desenvolvida em Python utilizando a API Open-Meteo para consultar condições climáticas atuais, previsão dos próximos dias e manter um histórico local de consultas.
+A command-line weather application developed in Python using the Open-Meteo API.
 
-## Funcionalidades
+This project was created to practice API consumption, Object-Oriented Programming (OOP), data persistence, modular architecture, and error handling.
 
-* Consulta de clima atual por cidade
-* Busca automática de coordenadas (Geocoding)
-* Previsão climática para os próximos dias
-* Histórico persistente em arquivo JSON
-* Estatísticas sobre consultas realizadas
-* Tratamento de erros de rede e dados inválidos
-* Estrutura modular
-* Programação Orientada a Objetos
+## Features
 
-## Tecnologias
+* Search weather information by city
+* Automatic geocoding (city to coordinates)
+* Current weather conditions
+* Multi-day weather forecast
+* Persistent search history using JSON
+* Weather statistics and analytics
+* Object-Oriented design
+* Modular project structure
+* Error handling for network failures and corrupted data
+
+## Technologies
 
 * Python 3
 * Requests
 * Open-Meteo API
 * JSON
+* Object-Oriented Programming (OOP)
 
-## Instalação
-
-Clone o repositório:
-
-```bash
-git clone git@github.com:patrickoliveira-dev/python-weather-app.git
-```
-
-Acesse a pasta do projeto:
-
-```bash
-cd python-weather-app
-```
-
-Instale as dependências:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Execução
-
-Execute o programa com:
-
-```bash
-python main.py
-```
-
-## Estrutura do Projeto
+## Project Structure
 
 ```text
 python-weather-app/
@@ -64,31 +40,67 @@ python-weather-app/
 │   └── consulta_clima.py
 ```
 
-## Estatísticas Disponíveis
+## How to Run
 
-O sistema registra e exibe:
+Clone the repository:
 
-* Total de consultas realizadas
-* Cidade mais consultada
-* Temperatura média registrada
-* Maior temperatura registrada
-* Menor temperatura registrada
-* Primeira consulta realizada
-* Última consulta realizada
-* Top 3 cidades mais consultadas
+```bash
+git clone git@github.com:patrickoliveira-dev/python-weather-app.git
+```
 
-## Objetivo
+Navigate to the project directory:
 
-Este projeto foi desenvolvido com fins de estudo para praticar:
+```bash
+cd python-weather-app
+```
 
-* Consumo de APIs REST
-* Manipulação de JSON
-* Programação Orientada a Objetos
-* Modularização
-* Persistência de dados
-* Tratamento de exceções
-* Git e GitHub
+Install dependencies:
 
-## Licença
+```bash
+pip install -r requirements.txt
+```
 
-Projeto desenvolvido para fins educacionais.
+Run the application:
+
+```bash
+python main.py
+```
+
+## Available Statistics
+
+The application records and displays:
+
+* Total number of searches
+* Most searched city
+* Average recorded temperature
+* Highest recorded temperature
+* Lowest recorded temperature
+* First search performed
+* Most recent search performed
+* Top 3 most searched cities
+
+## Learning Objectives
+
+This project was built to practice:
+
+* REST API consumption
+* JSON manipulation
+* Classes and objects
+* Data persistence
+* Exception handling
+* Modularization
+* Git and GitHub workflow
+
+## Future Improvements
+
+* Export history to CSV
+* Export reports to PDF
+* Weather condition icons
+* Favorite cities
+* Search filters
+* Graphical user interface (GUI)
+* Database integration
+
+## Author
+
+Patrick Barboza Oliveira

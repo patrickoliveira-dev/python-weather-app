@@ -25,9 +25,6 @@ def salvar_consulta(consulta):
 def mostrar_historico():
 
     historico = carregar_historico()
-    
-    if historico is None:
-        return
 
     if not historico:
 
@@ -185,7 +182,7 @@ def carregar_historico():
     except json.JSONDecodeError:
 
         print(
-            "\n❌ Histórico corrompido."
+            "\n❌ Histórico de consultas corrompido."
         )
 
-        return None
+        return []
